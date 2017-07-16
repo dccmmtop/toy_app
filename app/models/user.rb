@@ -3,8 +3,7 @@ class User < ApplicationRecord
   EMAIL_FORMAT= /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :name, presence: true, length: { maximum: 50, minimum: 2 }
   validates :email, presence:true,length:{ maximum:50},format:{with:EMAIL_FORMAT},uniqueness:{case_sensitive: false}
-  validates :password_digest,presence:true ,length:{minimum:6}
-  validates :password_digest,presence:true
+  validates :password,presence:true ,length:{minimum:6}
   has_secure_password
 
 end

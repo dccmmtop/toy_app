@@ -38,7 +38,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not dup_user.valid?
   end
   test "password should be present(nobalank)"do
-    @user.password_digest="3"*5
+    @user.password = @user.password_confirmation = "a" * 5
     assert_not @user.valid?
   end
 
