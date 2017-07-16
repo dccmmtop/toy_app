@@ -5,7 +5,7 @@ class UserTest < ActiveSupport::TestCase
   #   assert true
   # end
   def setup
-    @user = User.new(name: 'dccmmtop', email: 'dccmmtop@gmail.com',password_digest:"mm")
+    @user = User.new(name: 'dccmmtop', email: 'dccmmtop@gmail.com',password:"mmmmmm")
   end
   test 'shoule be valid' do
       assert @user.valid?
@@ -36,6 +36,10 @@ class UserTest < ActiveSupport::TestCase
     dup_user=@user.dup
     @user.save
     assert_not dup_user.valid?
+  end
+  test "password should be present(nobalank)"do
+    @user.password_digest="3"*5
+    assert_not @user.valid?
   end
 
 
